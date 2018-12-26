@@ -43,10 +43,3 @@ USER appuser
 
 # Run the hello binary.
 ENTRYPOINT ["/go/bin/hello"]
-
-#check vulnerability
-RUN apk add --no-cache ca-certificates && update-ca-certificates && \
-    wget -O /microscanner https://get.aquasec.com/microscanner && \
-    chmod +x /microscanner && \
-    /microscanner <token> && \
-    rm -rf /microscanner
