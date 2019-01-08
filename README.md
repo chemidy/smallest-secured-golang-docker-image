@@ -1,4 +1,4 @@
-# smallest-secured-golang-docker-image
+# Create the smallest secured golang docker image base on scratc
 
 Read the related article : [Create the smallest and secured golang docker image based on scratch](https://medium.com/@chemidy/create-the-smallest-and-secured-golang-docker-image-based-on-scratch-4752223b7324)
 
