@@ -12,8 +12,13 @@ build:	## - Build the smallest and secured golang docker image based on scratch
 	@printf "\033[32m\xE2\x9c\x93 Build the smallest and secured golang docker image based on scratch\n\033[0m"
 	@docker build -f Dockerfile -t smallest-secured-golang .
 
+.PHONY: build-no-cache
+build-no-cache:	## - Build the smallest and secured golang docker image based on scratch with no cache
+	@printf "\033[32m\xE2\x9c\x93 Build the smallest and secured golang docker image based on scratch\n\033[0m"
+	@docker build --no-cache -f Dockerfile -t smallest-secured-golang .
+
 .PHONY: ls
-ls: ## - List images
+ls: ## - List 'smallest-secured-golang' docker images
 	@printf "\033[32m\xE2\x9c\x93 Look at the size dude !\n\033[0m"
 	@docker image ls smallest-secured-golang
 
@@ -22,13 +27,13 @@ run:	## - Run the smallest and secured golang docker image based on scratch
 	@printf "\033[32m\xE2\x9c\x93 Run the smallest and secured golang docker image based on scratch\n\033[0m"
 	@docker run smallest-secured-golang:latest
 
-.PHONY: docker-push-azure
-docker-push-azure:	## - Push docker image to azurecr.io container registry
+.PHONY: push-to-azure
+push-to-azure:	## - Push docker image to azurecr.io container registry
 	@az acr login --name chemidy
 	@docker push chemidy.azurecr.io/smallest-secured-golang-docker-image:$(VERSION)
 
-.PHONY: docker-push-gcp
-docker-push-gcp:	## - Push docker image to gcr.io container registry
+.PHONY: push-to-gcp
+push-to-gcp:	## - Push docker image to gcr.io container registry
 	@gcloud auth application-default login
 	@gcloud auth configure-docker
 	@docker push gcr.io/chemidy/smallest-secured-golang-docker-image:$(VERSION)

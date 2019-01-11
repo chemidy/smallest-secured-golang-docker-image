@@ -25,7 +25,6 @@ func checkWebsite(website string) error {
 	fmt.Println("Paris is magic : what time is it in Paris ?", parisTime)
 
 	return err
-
 }
 
 func main() {
