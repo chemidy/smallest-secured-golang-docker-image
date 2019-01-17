@@ -5,8 +5,11 @@ Read the related article : [Create the smallest and secured golang docker image 
 ```
 ✓ usage: make [target]
 
+build-no-cache                 - Build the smallest and secured golang docker image based on scratch with no cache
 build                          - Build the smallest and secured golang docker image based on scratch
 help                           - Show help message
-ls                             - List images
+ls                             - List 'smallest-secured-golang' docker images
+push-to-azure                  - Push docker image to azurecr.io container registry
+push-to-gcp                    - Push docker image to gcr.io container registry
 run                            - Run the smallest and secured golang docker image based on scratch
 ```
