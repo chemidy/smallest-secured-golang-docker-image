@@ -23,7 +23,7 @@ RUN go get -d -v
 # RUN go mod download
 
 # Build the binary
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -ldflags="-w -s" -o /go/bin/hello
+RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /go/bin/hello
 
 ############################
 # STEP 2 build a small image
