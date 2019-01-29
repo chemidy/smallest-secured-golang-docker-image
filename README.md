@@ -1,4 +1,4 @@
-# Create the smallest secured golang docker image base on scratc
+# Create the smallest secured golang docker image base on scratch
 
 Read the related article : [Create the smallest and secured golang docker image based on scratch](https://medium.com/@chemidy/create-the-smallest-and-secured-golang-docker-image-based-on-scratch-4752223b7324)
 
@@ -12,4 +12,10 @@ ls                             - List 'smallest-secured-golang' docker images
 push-to-azure                  - Push docker image to azurecr.io container registry
 push-to-gcp                    - Push docker image to gcr.io container registry
 run                            - Run the smallest and secured golang docker image based on scratch
+```
+
+# Quickstart 
+
+```
+make build && make run
 ```
