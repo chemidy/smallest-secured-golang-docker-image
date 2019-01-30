@@ -12,8 +12,8 @@ RUN apk update && apk add --no-cache git ca-certificates tzdata && update-ca-cer
 # Create appuser
 RUN adduser -D -g '' appuser
 
-COPY . $GOPATH/src/mypackage/myapp/
 WORKDIR $GOPATH/src/mypackage/myapp/
+COPY . .
 
 # Fetch dependencies.
 
