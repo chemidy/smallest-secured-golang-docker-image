@@ -1,8 +1,8 @@
 ############################
 # STEP 1 build executable binary
 ############################
-# golang alpine 1.11.5
-FROM golang@sha256:8dea7186cf96e6072c23bcbac842d140fe0186758bcc215acb1745f584984857 as builder
+# golang alpine 1.12
+FROM golang@sha256:8cc1c0f534c0fef088f8fe09edc404f6ff4f729745b85deae5510bfd4c157fb2 as builder
 
 # Install git + SSL ca certificates.
 # Git is required for fetching the dependencies.
@@ -21,7 +21,7 @@ COPY . .
 RUN go get -d -v
 
 # Using go mod.
-# RUN go mod download
+# RUN GO111MODULE=on go mod download
 
 # Build the binary
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -a -installsuffix cgo -o /go/bin/hello .
