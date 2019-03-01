@@ -11,12 +11,15 @@ RUN apk update && apk add --no-cache git ca-certificates tzdata && update-ca-cer
 
 # Create appuser
 RUN adduser -D -g '' appuser
-
 WORKDIR $GOPATH/src/mypackage/myapp/
-COPY . .
 
-# Fetch dependencies.
-RUN go get -d -v
+# use modules
+COPY go.mod .
+
+ENV GO111MODULE=on
+RUN go mod download
+
+COPY . .
 
 # Build the binary
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -a -installsuffix cgo -o /go/bin/hello .
