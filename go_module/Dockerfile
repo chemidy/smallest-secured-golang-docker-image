@@ -18,6 +18,7 @@ COPY go.mod .
 
 ENV GO111MODULE=on
 RUN go mod download
+RUN go mod verify
 
 COPY . .
 
