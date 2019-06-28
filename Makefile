@@ -10,12 +10,12 @@ help: ## - Show help message
 .PHONY: build
 build:	## - Build the smallest and secured golang docker image based on scratch
 	@printf "\033[32m\xE2\x9c\x93 Build the smallest and secured golang docker image based on scratch\n\033[0m"
-	@docker build -f Dockerfile -t smallest-secured-golang .
+	@export DOCKER_CONTENT_TRUST=1 && docker build -f Dockerfile -t smallest-secured-golang .
 
 .PHONY: build-no-cache
 build-no-cache:	## - Build the smallest and secured golang docker image based on scratch with no cache
 	@printf "\033[32m\xE2\x9c\x93 Build the smallest and secured golang docker image based on scratch\n\033[0m"
-	@docker build --no-cache -f Dockerfile -t smallest-secured-golang .
+	@export DOCKER_CONTENT_TRUST=1 && docker build --no-cache -f Dockerfile -t smallest-secured-golang .
 
 .PHONY: ls
 ls: ## - List 'smallest-secured-golang' docker images
