@@ -19,15 +19,17 @@ RUN go mod verify
 
 COPY . .
 
-# Build the binary
-RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -a -installsuffix cgo -o /go/bin/hello .
+# Build the static binary
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
+      -ldflags='-w -s -extldflags "-static"' -a \
+      -o /go/bin/hello .
 
 ############################
 # STEP 2 build a small image
 ############################
-# using base nonroot image
+# using static nonroot image
 # user:group is nobody:nobody, uid:gid = 65534:65534
-FROM gcr.io/distroless/base@sha256:2b177fbc9a31b85254d264e1fc9a65accc6636d6f1033631b9b086ee589d1fe2
+FROM gcr.io/distroless/static@sha256:08322afd57db6c2fd7a4264bf0edd9913176835585493144ee9ffe0c8b576a76
 
 # Copy our static executable
 COPY --from=builder /go/bin/hello /go/bin/hello
