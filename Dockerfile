@@ -1,8 +1,8 @@
 ############################
 # STEP 1 build executable binary
 ############################
-# golang alpine 1.13.5
-FROM golang@sha256:0991060a1447cf648bab7f6bb60335d1243930e38420bee8fec3db1267b84cfa as builder
+# golang alpine 1.14.1
+FROM golang@sha256:244a736db4a1d2611d257e7403c729663ce2eb08d4628868f9d9ef2735496659 as builder
 
 # Install git + SSL ca certificates.
 # Git is required for fetching the dependencies.
