@@ -1,9 +1,9 @@
 ############################
 # STEP 1 build executable binary
 ############################
-# golang debian buster 1.13.6 linux/amd64
-# https://github.com/docker-library/golang/blob/master/1.13/buster/Dockerfile
-FROM golang@sha256:93a56423351235e070b3630e0a8b3e27d5e868883d4dff591f676315f208a574 as builder
+# golang debian buster 1.14 linux/amd64
+# https://github.com/docker-library/golang/blob/master/1.14/buster/Dockerfile
+FROM golang@sha256:eee8c0a92bc950ecb20d2dffe46546da12147e3146f1b4ed55072c10cacf4f4c as builder
 
 # Ensure ca-certficates are up to date
 RUN update-ca-certificates
