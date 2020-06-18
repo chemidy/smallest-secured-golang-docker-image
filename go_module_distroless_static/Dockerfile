@@ -3,7 +3,7 @@
 ############################
 # golang debian buster 1.14.1 linux/amd64
 # https://github.com/docker-library/golang/blob/master/1.14/buster/Dockerfile
-FROM golang@sha256:eee8c0a92bc950ecb20d2dffe46546da12147e3146f1b4ed55072c10cacf4f4c as builder
+FROM golang@sha256:1e9c36b3fd7d7f9ab95835fb1ed898293ec0917e44c7e7d2766b4a2d9aa43da6 as builder
 
 # Ensure ca-certficates are up to date
 RUN update-ca-certificates
