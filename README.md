@@ -1,6 +1,6 @@
-# Create the smallest secured golang docker image base on scratch
+# Create the smallest secured golang docker image based on scratch or distroless
 
-Read the related article : [Create the smallest and secured golang docker image based on scratch](https://medium.com/@chemidy/create-the-smallest-and-secured-golang-docker-image-based-on-scratch-4752223b7324)
+Read the related article : [Create the smallest and secured golang docker image based on scratch or distroless](https://medium.com/@chemidy/create-the-smallest-and-secured-golang-docker-image-based-on-scratch-4752223b7324)
 
 ```
 ✓ usage: make [target]
