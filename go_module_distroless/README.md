@@ -1,4 +1,4 @@
-# Create the smallest secured golang docker image base on distroless
+# Create the smallest secured golang docker image based on distroless
 
 Read the related article : [Create the smallest and secured golang docker image based on scratch](https://medium.com/@chemidy/create-the-smallest-and-secured-golang-docker-image-based-on-scratch-4752223b7324)
 
