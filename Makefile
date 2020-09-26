@@ -1,6 +1,9 @@
 VERSION=`git rev-parse HEAD`
 BUILD=`date +%FT%T%z`
 LDFLAGS=-ldflags "-X main.Version=${VERSION} -X main.Build=${BUILD}"
+# AWS related variables, eu-west-3 is Paris region
+AWS_REGION=eu-west-3
+AWS_ACCOUNT_NUMBER=123412341234
 
 .PHONY: help
 help: ## - Show help message
@@ -29,9 +32,9 @@ run:	## - Run the smallest and secured golang docker image based on scratch
 
 .PHONY: push-to-aws
 push-to-aws:	## - Push docker image to AWS Elastic Container Registry
-	@aws ecr get-login-password --region $(AWS_REGION) | docker login --username AWS --password-stdin $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com
-	@docker tag smallest-secured-golang:latest $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/smallest-secured-golang-docker-image:$(VERSION)
-	@docker push $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/smallest-secured-golang-docker-image:$(VERSION)
+	@aws ecr get-login-password --region $(AWS_REGION) | docker login --username AWS --password-stdin $(AWS_ACCOUNT_NUMBER).dkr.ecr.$(AWS_REGION).amazonaws.com
+	@docker tag smallest-secured-golang:latest $(AWS_ACCOUNT_NUMBER).dkr.ecr.$(AWS_REGION).amazonaws.com/smallest-secured-golang-docker-image:$(VERSION)
+	@docker push $(AWS_ACCOUNT_NUMBER).dkr.ecr.$(AWS_REGION).amazonaws.com/smallest-secured-golang-docker-image:$(VERSION)
 
 .PHONY: push-to-azure
 push-to-azure:	## - Push docker image to azurecr.io container registry
