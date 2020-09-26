@@ -21,7 +21,7 @@ run                            - Run the smallest and secured golang docker imag
 make build && make run
 ```
 
-# Pushing to AWS Elastic Container Service 
+# Pushing to AWS Elastic Container Registry 
 
 One of AWS ECR pain points is that you can only have one image per repository.
 However, each repository can have multiple versions of the same image.
