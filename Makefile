@@ -37,12 +37,12 @@ push-to-aws:	## - Push docker image to AWS Elastic Container Registry
 	@docker push $(AWS_ACCOUNT_NUMBER).dkr.ecr.$(AWS_REGION).amazonaws.com/smallest-secured-golang-docker-image:$(VERSION)
 
 .PHONY: push-to-azure
-push-to-azure:	## - Push docker image to azurecr.io container registry
+push-to-azure:	## - Push docker image to azurecr.io Container Registry
 	@az acr login --name chemidy
 	@docker push chemidy.azurecr.io/smallest-secured-golang-docker-image:$(VERSION)
 
 .PHONY: push-to-gcp
-push-to-gcp:	## - Push docker image to gcr.io container registry
+push-to-gcp:	## - Push docker image to gcr.io Container Registry
 	@gcloud auth application-default login
 	@gcloud auth configure-docker
 	@docker push gcr.io/chemidy/smallest-secured-golang-docker-image:$(VERSION)

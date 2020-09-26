@@ -10,8 +10,8 @@ build                          - Build the smallest and secured golang docker im
 help                           - Show help message
 ls                             - List 'smallest-secured-golang' docker images
 push-to-aws                    - Push docker image to AWS Elastic Container Registry
-push-to-azure                  - Push docker image to azurecr.io container registry
-push-to-gcp                    - Push docker image to gcr.io container registry
+push-to-azure                  - Push docker image to azurecr.io Container Registry
+push-to-gcp                    - Push docker image to gcr.io Container Registry
 run                            - Run the smallest and secured golang docker image based on scratch
 ```
 
