@@ -37,3 +37,8 @@ push-to-gcp:	## - Push docker image to gcr.io container registry
 	@gcloud auth application-default login
 	@gcloud auth configure-docker
 	@docker push gcr.io/chemidy/smallest-secured-golang-docker-image:$(VERSION)
+
+.PHONY: scan
+scan:	## - Scan for known vulnerabilities the smallest and secured golang docker image based on distroless
+	@printf "\033[32m\xE2\x9c\x93 Scan for known vulnerabilities the smallest and secured golang docker image based on distroless\n\033[0m"
+	@docker scan -f Dockerfile smallest-secured-golang-distroless
