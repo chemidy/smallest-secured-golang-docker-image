@@ -12,6 +12,7 @@ ls                             - List 'smallest-secured-golang' docker images
 push-to-azure                  - Push docker image to azurecr.io container registry
 push-to-gcp                    - Push docker image to gcr.io container registry
 run                            - Run the smallest and secured golang docker image based on scratch
+scan                           - Scan for known vulnerabilities the smallest and secured golang docker image based on scratch
 ```
 
 # Quickstart 
