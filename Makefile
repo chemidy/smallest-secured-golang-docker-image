@@ -27,6 +27,12 @@ run:	## - Run the smallest and secured golang docker image based on scratch
 	@printf "\033[32m\xE2\x9c\x93 Run the smallest and secured golang docker image based on scratch\n\033[0m"
 	@docker run smallest-secured-golang:latest
 
+.PHONY: push-to-aws
+push-to-aws:	## - Push docker image to AWS Elastic Container Registry
+	@aws ecr get-login-password --region $(AWS_REGION) | docker login --username AWS --password-stdin $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com
+	@docker tag smallest-secured-golang:latest $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/smallest-secured-golang-docker-image:$(VERSION)
+	@docker push $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/smallest-secured-golang-docker-image:$(VERSION)
+
 .PHONY: push-to-azure
 push-to-azure:	## - Push docker image to azurecr.io container registry
 	@az acr login --name chemidy
