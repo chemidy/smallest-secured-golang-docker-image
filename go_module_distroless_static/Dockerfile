@@ -3,7 +3,7 @@
 ############################
 # golang debian buster 1.15 linux/amd64
 # https://github.com/docker-library/golang/blob/master/1.15/buster/Dockerfile
-FROM golang@sha256:32e45459a1e22262d9a307074c1a796a86f5c08c85dcde5bfbbf9e7c411eb990 as builder
+FROM golang@sha256:29452ef08bd0535f550c47b6034522c82ac10517b49c5f3b7a00035ecee0089e as builder
 
 # Ensure ca-certficates are up to date
 RUN update-ca-certificates
@@ -29,7 +29,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
 ############################
 # using static nonroot image
 # user:group is nobody:nobody, uid:gid = 65534:65534
-FROM gcr.io/distroless/static@sha256:08cce4d65b19780e10b555578a0f9c9af51310308ec31e648577122d40e6922a
+FROM gcr.io/distroless/static@sha256:7d687a1d8809b89c60211ff08a9277ffbe76895907aedffac4d2400a4e1a2dc7
 
 # Copy our static executable
 COPY --from=builder /go/bin/hello /go/bin/hello
