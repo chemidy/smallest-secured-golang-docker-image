@@ -7,6 +7,7 @@ Read the related article : [Create the smallest and secured golang docker image 
 
 build-no-cache                 - Build the smallest and secured golang docker image based on distroless static with no cache
 build                          - Build the smallest and secured golang docker image based on distroless static
+docker-pull                    - docker pull latest images
 deploy-to-gcp                  - deploy docker image to gcp cloud run
 help                           - Show help message
 ls                             - List 'smallest-secured-golang-distroless-static' docker images
