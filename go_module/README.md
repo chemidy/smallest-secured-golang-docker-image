@@ -7,6 +7,7 @@ Read the related article : [Create the smallest and secured golang docker image 
 
 build-no-cache                 - Build the smallest and secured golang docker image based on scratch with no cache
 build                          - Build the smallest and secured golang docker image based on scratch
+deploy-to-gcp                  - deploy docker image to gcp cloud run
 help                           - Show help message
 ls                             - List 'smallest-secured-golang' docker images
 push-to-aws                    - Push docker image to AWS Elastic Container Registry
@@ -21,3 +22,17 @@ scan                           - Scan for known vulnerabilities the smallest and
 ```
 make build && make run
 ```
+
+# Pushing to AWS Elastic Container Registry 
+
+One of AWS ECR pain points is that you can only have one image per repository.
+However, each repository can have multiple versions of the same image.
+You will first need to create the repository in ECR, either from the console or from the command line.
+
+The commands in the makefile assumes you have AWS cli properly configured.
+Either by having the following environment variables defined: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.
+Or by having run the _aws configure_ command beforehand.
+
+Two variables have a default value assigned: AWS_REGION and AWS_ACCOUNT_NUMBER.
+The AWS_ACCOUNT_NUMBER is a 12-digit number.
+Please see the [official documentation](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) if you need to find out your account number.
