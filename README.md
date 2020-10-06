@@ -5,10 +5,13 @@ Read the related article : [Create the smallest and secured golang docker image 
 ```
 ✓ usage: make [target]
 
+build-distroless-static        - Build the smallest and secured golang docker image based on distroless static
+build-distroless               - Build the smallest and secured golang docker image based on distroless
+build-module                   - Build the smallest and secured golang docker image based on scratch
 build-no-cache                 - Build the smallest and secured golang docker image based on scratch with no cache
 build                          - Build the smallest and secured golang docker image based on scratch
-docker-pull                    - docker pull latest images
 deploy-to-gcp                  - deploy docker image to gcp cloud run
+docker-pull                    - docker pull latest images
 help                           - Show help message
 ls                             - List 'smallest-secured-golang' docker images
 push-to-aws                    - Push docker image to AWS Elastic Container Registry
