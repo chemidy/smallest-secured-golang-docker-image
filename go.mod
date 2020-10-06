@@ -1,3 +1,3 @@
-module github.com/chemidy/smallest-secured-golang-docker-image/go_module
+module github.com/chemidy/smallest-secured-golang-docker-image
 
-go 1.12
+go 1.15
