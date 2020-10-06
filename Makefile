@@ -31,13 +31,13 @@ docker-pull-distroless:	## - docker pull latest images
 build:docker-pull	## - Build the smallest and secured golang docker image based on scratch
 	@printf "\033[32m\xE2\x9c\x93 Build the smallest and secured golang docker image based on scratch\n\033[0m"
 	$(eval BUILDER_IMAGE=$(shell docker inspect --format='{{index .RepoDigests 0}}' golang:alpine))
-	@export DOCKER_CONTENT_TRUST=1 && docker build -f docker/Dockerfile --build-arg "BUILDER_IMAGE=$(BUILDER_IMAGE)" -t smallest-secured-golang .
+	@export DOCKER_CONTENT_TRUST=1 && docker build -f docker/scratch.Dockerfile --build-arg "BUILDER_IMAGE=$(BUILDER_IMAGE)" -t smallest-secured-golang .
 
 .PHONY: build-module
 build-module:docker-pull	## - Build the smallest and secured golang docker image based on scratch
 	@printf "\033[32m\xE2\x9c\x93 Build the smallest and secured golang docker image based on scratch\n\033[0m"
 	$(eval BUILDER_IMAGE=$(shell docker inspect --format='{{index .RepoDigests 0}}' golang:alpine))
-	@export DOCKER_CONTENT_TRUST=1 && docker build -f docker/module.Dockerfile --build-arg "BUILDER_IMAGE=$(BUILDER_IMAGE)" -t smallest-secured-golang .
+	@export DOCKER_CONTENT_TRUST=1 && docker build -f docker/scratch_module.Dockerfile --build-arg "BUILDER_IMAGE=$(BUILDER_IMAGE)" -t smallest-secured-golang .
 
 .PHONY: build-distroless
 build-distroless:docker-pull-distroless	## - Build the smallest and secured golang docker image based on distroless
@@ -57,7 +57,7 @@ build-distroless-static:docker-pull-distroless	## - Build the smallest and secur
 build-no-cache:docker-pull	## - Build the smallest and secured golang docker image based on scratch with no cache
 	@printf "\033[32m\xE2\x9c\x93 Build the smallest and secured golang docker image based on scratch\n\033[0m"
 	$(eval BUILDER_IMAGE=$(shell docker inspect --format='{{index .RepoDigests 0}}' golang:alpine))
-	@export DOCKER_CONTENT_TRUST=1 && docker build --no-cache -f docker/Dockerfile --build-arg "BUILDER_IMAGE=$(BUILDER_IMAGE)" -t smallest-secured-golang .
+	@export DOCKER_CONTENT_TRUST=1 && docker build --no-cache -f docker/scratch.Dockerfile --build-arg "BUILDER_IMAGE=$(BUILDER_IMAGE)" -t smallest-secured-golang .
 
 .PHONY: ls
 ls: ## - List 'smallest-secured-golang' docker images
