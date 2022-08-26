@@ -14,8 +14,7 @@ WORKDIR $GOPATH/src/mypackage/myapp/
 COPY go.mod .
 
 ENV GO111MODULE=on
-RUN go mod download
-RUN go mod verify
+RUN go mod download && go mod verify
 
 COPY . .
 
