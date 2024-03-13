@@ -37,4 +37,4 @@ FROM ${DISTROLESS_IMAGE}
 COPY --from=builder /myapp/hello /myapp/hello
 
 # Run the hello binary.
-ENTRYPOINT ["/myapp/hello"]:
+ENTRYPOINT ["/myapp/hello"]
